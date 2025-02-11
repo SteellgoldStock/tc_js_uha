@@ -17,9 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       cursorImage.src = 'assets/MART.png';
     }, 200);
-
-    // if (elementClicked && elementClicked.id === 'mole' && !elementClicked.classList.contains('hit')) {
-    //   cursorImage.src = 'assets/MART_HIT.png';
-    // }
   });
 });
