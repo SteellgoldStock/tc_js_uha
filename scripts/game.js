@@ -6,22 +6,40 @@ class Game {
   }
 
   start() {
-    const timerSpan = document.getElementById('timer-value');
-    timerSpan.innerHTML = this.elapsedTime;
-
     this.gameStarted = true;
 
-    setInterval(() => {
+    const scoreSpan = document.getElementById('score-value');
+    const timerSpan = document.getElementById('timer-value');
+
+    timerSpan.innerHTML = this.elapsedTime;
+
+    const moleElement = document.getElementById('mole');
+
+    const timerInterval = setInterval(() => {
       if (this.gameStarted) {
         --this.elapsedTime;
         timerSpan.innerHTML = this.elapsedTime;
+
+        if (this.elapsedTime <= 0) {
+          this.stop();
+          clearInterval(timerInterval);
+        }
       }
     }, 1000);
 
     const mole = new Mole();
 
-    mole.randomPosition();
-    mole.show();
+    moleElement.addEventListener('click', () => {
+      if (mole.isClicked()) return;
+      mole.click();
+
+      this.score++;
+      scoreSpan.innerHTML = this.score;
+      moleElement.classList.add('hit');
+      setTimeout(() => {
+        mole.hide();
+      }, 100);
+    });
 
     setInterval(() => {
       mole.hide();
@@ -31,13 +49,6 @@ class Game {
       }, 500);
     }, 2000);
   }
-
-  // parseTime() {
-  //   const minutes = Math.floor(this.elapsedTime / 60);
-  //   const seconds = this.elapsedTime % 60;
-
-  //   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  // }
 
   stop() {
     this.gameStarted = false;

@@ -7,12 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     customCursor.style.top = `${e.pageY}px`;
   });
 
-  document.addEventListener('click', () => {
-    console.log('click');
-    cursorImage.src = 'assets/MART_TRIGGERED.png';
+  document.addEventListener('click', (event) => {
+    const elementClicked = document.elementFromPoint(event.clientX, event.clientY);
+    
+    if (elementClicked && elementClicked.id === 'mole') cursorImage.src = 'assets/MART_HIT.png';
+    else cursorImage.src = 'assets/MART_TRIGGERED.png';
+
 
     setTimeout(() => {
       cursorImage.src = 'assets/MART.png';
     }, 200);
+
+    // if (elementClicked && elementClicked.id === 'mole' && !elementClicked.classList.contains('hit')) {
+    //   cursorImage.src = 'assets/MART_HIT.png';
+    // }
   });
 });
