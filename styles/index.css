@@ -6,26 +6,27 @@ body {
   align-items: center;
   background-color: #f0f0f0;
   cursor: none;
+
+  font-family: 'Lexend', sans-serif;
 }
 
 img {
 user-select: none;
 }
 
-#custom-cursor {
-  position: absolute;
-  pointer-events: none;
-  width: 100px;
-  height: 100px;
-  z-index: 1000;
-}
-
-#custom-cursor img {
-  width: 100%;
-  height: 100%;
-}
-
 h1 {
   font-family: Arial, sans-serif;
   font-size: 2rem;
+}
+
+#game-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 10px;
+
+  top: 0;
+  left: 0;
 }

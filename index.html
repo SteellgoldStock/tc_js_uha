@@ -6,19 +6,43 @@
     <title>TAPETOPE</title>
     <link rel="icon" href="MART.png">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/cursor.css">
     <link rel="stylesheet" href="styles/mole.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="custom-cursor">
     <img src="/assets/MART.png" alt="Curseur" id="cursor-image">
   </div>
 
-  <div id="mole" />
+  <div id="mole"></div>
+
+  <div id="game-container">
+    <div id="score">Score: <span id="score-value"></span></div>
+    <div id="timer">Temps restant: <span id="timer-value">60</span>s</div>
+  </div>
+
+  <button id="start-button">Démarrer le jeu</button>
 
   <script src="scripts/cursor.js"></script>
   <script src="scripts/mole.js"></script>
+  <script src="scripts/game.js"></script>
 
   <script>
+    const game = new Game();
+    
+    const button = document.getElementById('start-button');
+    button.addEventListener('click', () => {
+      console.log('Game started');
+      game.start();
+
+      setTimeout(() => {
+        game.stop();
+      }, 30000);
+    });
   </script>
 </body>
 </html>
