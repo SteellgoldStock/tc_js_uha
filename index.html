@@ -50,7 +50,7 @@
   </div>
   
   <div id="game-onboard">
-    <img src="/assets/mole.png" alt="Mole" id="mole-image">
+    <img src="/assets/MART.png" alt="Mole" id="pre-cursor-image">
 
     <div id="game-settings">
       <h3 id="game-title">Jeu de tape la taupe</h3>
@@ -59,10 +59,11 @@
       <div class="settings-container">
         <div class="settings">
           <label for="difficulty">Difficulté :</label>
+          <p id="difficulty-description">La difficulté détermine la vitesse d'apparition de la taupe.</p>
           <select id="difficulty">
-            <option value="easy">Facile</option>
-            <option value="medium">Moyenne</option>
-            <option value="hard">Difficile</option>
+            <option value="easy">Facile (2s)</option>
+            <option value="medium">Moyenne (1.5s)</option>
+            <option value="hard">Difficile (1.35s)</option>
           </select>
         </div>
     
@@ -79,6 +80,8 @@
         <button id="start-button">Démarrer le jeu</button>
       </div>
     </div>
+
+    <img src="/assets/mole.png" alt="Cursor" id="mole-image">
   </div>
 
 
@@ -139,6 +142,15 @@
     slider.addEventListener('input', () => {
       timeValue.textContent = parseTimer(slider.value, false, true);
     });
+
+    const hammer = document.getElementById("pre-cursor-image");
+    setInterval(() => {
+      if (hammer.src) {
+        hammer.src = hammer.src.includes("MART.png")
+          ? "/assets/MART_TRIGGERED.png"
+          : "/assets/MART.png";
+      }
+    }, 960)
   </script>
 </body>
 </html>

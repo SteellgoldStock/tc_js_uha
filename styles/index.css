@@ -42,19 +42,31 @@ h1 {
 }
 
 #game-onboard {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
-  img {
+#pre-cursor-image {
+  width: 300px;
+  rotate: -16deg;
+  margin-bottom: -100px;
+  margin-left: 50px;
 
-    width: 300px;
-    rotate: 10deg;
-    margin-bottom: -100px;
-    margin-left: 50px;
+  z-index: 1;
+}
 
-    z-index: 1;
-  }
+#mole-image {
+  position: absolute;
+  bottom: 130px;
+  right: 230px;
+  width: 250px;
+  margin-bottom: -100px;
+
+  rotate: -16deg;
+
+  z-index: 1;
 }
 
 #end-message {
@@ -105,5 +117,12 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+  }
+  
+  #difficulty-description {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: #666;
   }
 }
