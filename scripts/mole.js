@@ -28,7 +28,7 @@ class Mole {
 
   randomPosition() {
     // WINDOW SIZE
-    const bodyRect = document.body.getBoundingClientRect();
+    const bodyRect = document.getElementById('mole-container').getBoundingClientRect();
 
     // WINDOW LIMITS
     const maxX = bodyRect.width - this.mole.offsetWidth;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAPETOPE</title>
+    <title>TAPE-TAUPE</title>
     <link rel="icon" href="MART.png">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/cursor.css">
@@ -18,25 +18,90 @@
     <img src="/assets/MART.png" alt="Curseur" id="cursor-image">
   </div>
 
-  <div id="mole"></div>
-
-  <div id="game-container">
-    <div id="score">Score: <span id="score-value"></span></div>
-    <div id="timer">Temps restant: <span id="timer-value">60</span>s</div>
+  <div id="game-area" style="display: none;">
+    <div id="mole-container">
+      <div id="mole"></div>
+    </div>
   </div>
 
-  <button id="start-button">Démarrer le jeu</button>
+
+  <div id="info-container" style="display: none;">
+    <div id="score">Score: <span id="score-value"></span></div>
+    <div id="timer">Temps restant: <span id="timer-value">60</span></div>
+    <div id="speed">Vitesse actuelle: <span id="speed-value">1</span></div>
+  </div>
+  
+  
+  <div id="game-onboard">
+    <img src="/assets/mole.png" alt="Mole" id="mole-image">
+
+    <div id="game-settings">
+      <h3 id="game-title">Jeu de tape la taupe</h3>
+      <p id="game-description">Mettez vos réflexes à l'épreuve en tapant sur la taupe qui sort du trou !</p>
+  
+      <div class="settings-container">
+        <div class="settings">
+          <label for="difficulty">Difficulté :</label>
+          <select id="difficulty">
+            <option value="easy">Facile</option>
+            <option value="medium">Moyenne</option>
+            <option value="hard">Difficile</option>
+          </select>
+        </div>
+    
+        <div class="settings">
+          <label for="time">Temps de jeu: (<span id="time-value">60s</span>)</label>
+          <input type="range" id="time-slider" min="10" max="600" value="60">
+        </div>
+
+        <div id="settings-custom-cursor">
+          <input type="checkbox" id="custom-cursor-checkbox" checked>
+          <label for="custom-cursor-checkbox">Curseur personnalisé</label>
+        </div>
+  
+        <button id="start-button">Démarrer le jeu</button>
+      </div>
+    </div>
+  </div>
+
 
   <script src="scripts/cursor.js"></script>
   <script src="scripts/mole.js"></script>
   <script src="scripts/game.js"></script>
+  <script src="scripts/utils.js"></script>
 
   <script>
     const game = new Game();
-    
+
+    const difficulty = document.getElementById('difficulty');
+    const timeSlider = document.getElementById('time-slider');    
     const button = document.getElementById('start-button');
-    button.addEventListener('click', () => {
-      game.start();
+    const ccCheckbox = document.getElementById('custom-cursor-checkbox');
+
+    ccCheckbox.addEventListener('change', () => {
+      if (ccCheckbox.checked) {
+        document.getElementById("custom-cursor").style.display = "block";
+      } else {
+        document.getElementById("custom-cursor").style.display = "none";
+      }
+    });
+
+    button.addEventListener("click", () => game.start(
+      difficulty.value
+        == "easy"
+          ? 2000
+          : difficulty.value
+            == "medium"
+            ? 1500
+            : 1350,
+      timeSlider.value
+    ));
+
+    const slider = document.getElementById("time-slider");
+    const timeValue = document.getElementById("time-value");
+
+    slider.addEventListener('input', () => {
+      timeValue.textContent = parseTimer(slider.value);
     });
   </script>
 </body>
