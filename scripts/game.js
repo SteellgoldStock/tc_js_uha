@@ -3,6 +3,7 @@ class Game {
     this.score = 0;
     this.gameStarted = false;
     this.elapsedTime = 60;
+    this.spawnInterval = 2000;
   }
 
   start() {
@@ -10,6 +11,9 @@ class Game {
 
     const scoreSpan = document.getElementById('score-value');
     const timerSpan = document.getElementById('timer-value');
+
+    const startButton = document.getElementById('start-button');
+    startButton.style.display = 'none';
 
     timerSpan.innerHTML = this.elapsedTime;
 
@@ -47,7 +51,14 @@ class Game {
         mole.randomPosition();
         mole.show();
       }, 500);
-    }, 2000);
+    }, this.spawnInterval);
+  }
+
+  // https://chat.mistral.ai/chat/bd0c6dbc-e6dd-4f96-a465-ae0bdcad5d90
+  calcSpeed (N, I, A) {
+    const max = Math.ceil(N / A);
+    const speed = N / (I * max);
+    return speed;
   }
 
   stop() {

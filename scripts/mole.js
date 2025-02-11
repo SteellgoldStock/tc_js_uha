@@ -27,11 +27,18 @@ class Mole {
   }
 
   randomPosition() {
+    // WINDOW SIZE
     const bodyRect = document.body.getBoundingClientRect();
+
+    // WINDOW LIMITS
     const maxX = bodyRect.width - this.mole.offsetWidth;
     const maxY = bodyRect.height - this.mole.offsetHeight;
+
+    // RANDOM POSITIONS
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
+
+    // SET POSITION
     this.setPosition(randomX, randomY);
-  }
+}
 }
