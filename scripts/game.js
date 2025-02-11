@@ -3,16 +3,22 @@ class Game {
     this.score = 0;
     this.gameStarted = false;
 
-    this.elapsedTime = 60;
+    this.elapsedTime = 20;
+    this.defaultTime = 20;
+
     this.spawnInterval = 2000;
   }
 
   start(
     baseSpeed = 2000,
-    time = 60
+    time = 20
   ) {
     this.gameStarted = true;
-    this.elapsedTime = time || 60;
+    this.score = 0;
+
+    this.elapsedTime = time || 20;
+    this.defaultTime = time || 20;
+
     this.spawnInterval = baseSpeed || 2000;
 
     const scoreSpan = document.getElementById('score-value');
@@ -87,5 +93,22 @@ class Game {
 
   stop() {
     this.gameStarted = false;
+
+    const gameAreaContainer = document.getElementById("game-area");
+    const gameInfoContainer = document.getElementById("info-container");
+    gameAreaContainer.style.display = 'none';
+    gameInfoContainer.style.display = 'none';
+
+    const message = document.getElementById('end-message');
+    message.style.display = 'block';
+
+    const moleHits = document.getElementById('mole-hits');
+    moleHits.innerHTML = this.score;
+
+    const gameTime = document.getElementById('game-time');
+    gameTime.innerHTML = this.defaultTime;
+
+    const finalSpeed = document.getElementById('final-speed');
+    finalSpeed.innerHTML = this.spawnInterval + "ms";
   }
 }

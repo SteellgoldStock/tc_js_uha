@@ -7,6 +7,7 @@
     <link rel="icon" href="MART.png">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/cursor.css">
+    <link rel="stylesheet" href="styles/elements.css">
     <link rel="stylesheet" href="styles/mole.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,13 +25,28 @@
     </div>
   </div>
 
-
   <div id="info-container" style="display: none;">
     <div id="score">Score: <span id="score-value"></span></div>
-    <div id="timer">Temps restant: <span id="timer-value">60</span></div>
+    <div id="timer">Temps restant: <span id="timer-value">20</span></div>
     <div id="speed">Vitesse actuelle: <span id="speed-value">1</span></div>
   </div>
-  
+
+  <div id="end-message" style="display: none;">
+    <p id="message-text">
+      Vous venez de tapper
+      <span id="mole-hits">0</span>
+      taupes en
+      <span id="game-time">0s</span>
+      secondes.
+    </p>
+
+    <p id="message-text">
+      Vous avez fini avec un delai d'apparition de
+      <span id="final-speed">0ms</span>
+    </p>
+
+    <button id="restart-button">Retourner au menu</button>
+  </div>
   
   <div id="game-onboard">
     <img src="/assets/mole.png" alt="Mole" id="mole-image">
@@ -50,8 +66,8 @@
         </div>
     
         <div class="settings">
-          <label for="time">Temps de jeu: (<span id="time-value">60s</span>)</label>
-          <input type="range" id="time-slider" min="10" max="600" value="60">
+          <label for="time">Temps de jeu: (<span id="time-value">20s</span>)</label>
+          <input type="range" id="time-slider" min="10" max="600" value="20">
         </div>
 
         <div id="settings-custom-cursor">
@@ -75,14 +91,29 @@
 
     const difficulty = document.getElementById('difficulty');
     const timeSlider = document.getElementById('time-slider');    
+
     const button = document.getElementById('start-button');
+    const restartButton = document.getElementById('restart-button');
+
     const ccCheckbox = document.getElementById('custom-cursor-checkbox');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (ccCheckbox.checked) {
+      document.getElementById("custom-cursor").style.display = "block";
+      document.body.style.cursor = "none";
+      } else {
+      document.getElementById("custom-cursor").style.display = "none";
+      document.body.style.cursor = "default";
+      }
+    });
 
     ccCheckbox.addEventListener('change', () => {
       if (ccCheckbox.checked) {
-        document.getElementById("custom-cursor").style.display = "block";
+      document.getElementById("custom-cursor").style.display = "block";
+      document.body.style.cursor = "none";
       } else {
-        document.getElementById("custom-cursor").style.display = "none";
+      document.getElementById("custom-cursor").style.display = "none";
+      document.body.style.cursor = "default";
       }
     });
 
@@ -96,6 +127,10 @@
             : 1350,
       timeSlider.value
     ));
+
+    restartButton.addEventListener("click", () => {
+      window.location.reload();
+    });
 
     const slider = document.getElementById("time-slider");
     const timeValue = document.getElementById("time-value");
