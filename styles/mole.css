@@ -1,0 +1,11 @@
+#mole {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-image: url('./../assets/mole.png');
+  background-size: cover;
+  display: none;
+}
