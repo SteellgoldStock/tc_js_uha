@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAPETOPE</title>
     <link rel="icon" href="MART.png">
-    <link rel="stylesheet" href="styles/index.css">  
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/mole.css">
 </head>
 <body>
   <div id="custom-cursor">
     <img src="/assets/MART.png" alt="Curseur" id="cursor-image">
   </div>
-  
+
+  <div id="mole" />
+
   <script src="scripts/cursor.js"></script>
+  <script src="scripts/mole.js"></script>
+
+  <script>
+    const mole = new Mole();
+
+    mole.randomPosition();
+    mole.show();
+
+    setInterval(() => {
+      mole.hide();
+      setTimeout(() => {
+        mole.randomPosition();
+        mole.show();
+      }, 500);
+    }, 2000);
+  </script>
 </body>
 </html>
