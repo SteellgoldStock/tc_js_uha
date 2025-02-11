@@ -99,21 +99,21 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       if (ccCheckbox.checked) {
-      document.getElementById("custom-cursor").style.display = "block";
-      document.body.style.cursor = "none";
+        document.getElementById("custom-cursor").style.display = "block";
+        document.body.style.cursor = "none";
       } else {
-      document.getElementById("custom-cursor").style.display = "none";
-      document.body.style.cursor = "default";
+        document.getElementById("custom-cursor").style.display = "none";
+        document.body.style.cursor = "default";
       }
     });
 
     ccCheckbox.addEventListener('change', () => {
       if (ccCheckbox.checked) {
-      document.getElementById("custom-cursor").style.display = "block";
-      document.body.style.cursor = "none";
+        document.getElementById("custom-cursor").style.display = "block";
+        document.body.style.cursor = "none";
       } else {
-      document.getElementById("custom-cursor").style.display = "none";
-      document.body.style.cursor = "default";
+        document.getElementById("custom-cursor").style.display = "none";
+        document.body.style.cursor = "default";
       }
     });
 
@@ -136,7 +136,7 @@
     const timeValue = document.getElementById("time-value");
 
     slider.addEventListener('input', () => {
-      timeValue.textContent = parseTimer(slider.value);
+      timeValue.textContent = parseTimer(slider.value, false, true);
     });
   </script>
 </body>

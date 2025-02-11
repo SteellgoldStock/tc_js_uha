@@ -85,7 +85,7 @@ class Game {
 
       interval = setInterval(speedInterval, this.spawnInterval)
 
-      speedSpan.innerHTML = this.spawnInterval;
+      speedSpan.innerHTML = Math.floor(this.spawnInterval) + 'ms';
     }
 
     speedInterval(speedInterval, this.spawnInterval);
@@ -109,6 +109,6 @@ class Game {
     gameTime.innerHTML = this.defaultTime;
 
     const finalSpeed = document.getElementById('final-speed');
-    finalSpeed.innerHTML = this.spawnInterval + "ms";
+    finalSpeed.innerHTML = Math.floor(this.spawnInterval) + 'ms';
   }
 }
