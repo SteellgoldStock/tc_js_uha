@@ -4,64 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAPETOPE</title>
-    <style>
-      body {
-          height: 100vh;
-          margin: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #f0f0f0;
-          cursor: none;
-      }
-
-      img {
-        user-select: none;
-      }
-
-      #custom-cursor {
-          position: absolute;
-          pointer-events: none;
-          width: 100px;
-          height: 100px;
-          z-index: 1000;
-      }
-
-      #custom-cursor img {
-          width: 100%;
-          height: 100%;
-      }
-
-      h1 {
-          font-family: Arial, sans-serif;
-          font-size: 2rem;
-      }
-    </style>
+    <link rel="icon" href="MART.png">
+    <link rel="stylesheet" href="styles/index.css">  
 </head>
 <body>
   <div id="custom-cursor">
-    <img src="MART.png" alt="Curseur" id="cursor-image">
+    <img src="/assets/MART.png" alt="Curseur" id="cursor-image">
   </div>
   
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const customCursor = document.getElementById('custom-cursor');
-      const cursorImage = document.getElementById('cursor-image');
-
-      document.addEventListener('mousemove', (e) => {
-        customCursor.style.left = `${e.pageX}px`;
-        customCursor.style.top = `${e.pageY}px`;
-      });
-
-      document.addEventListener('click', () => {
-        console.log('click');
-        cursorImage.src = 'MART_TRIGGERED.png';
-
-        setTimeout(() => {
-          cursorImage.src = 'MART.png';
-        }, 200);
-      });
-    });
-  </script>
+  <script src="scripts/cursor.js"></script>
 </body>
 </html>
