@@ -142,15 +142,6 @@
     slider.addEventListener('input', () => {
       timeValue.textContent = parseTimer(slider.value, false, true);
     });
-
-    const hammer = document.getElementById("pre-cursor-image");
-    setInterval(() => {
-      if (hammer.src) {
-        hammer.src = hammer.src.includes("MART.png")
-          ? "/assets/MART_TRIGGERED.png"
-          : "/assets/MART.png";
-      }
-    }, 960)
   </script>
 </body>
 </html>
