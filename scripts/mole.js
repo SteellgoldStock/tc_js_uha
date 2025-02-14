@@ -1,15 +1,15 @@
 class Mole {
   constructor() {
-    this.mole = document.getElementById('mole');
+    this.mole = document.getElementById("mole");
     this.clicked = false;
   }
 
   show() {
-    this.mole.style.display = 'block';
+    this.mole.style.display = "block";
   }
 
   hide() {
-    this.mole.style.display = 'none';
+    this.mole.style.display = "none";
     this.clicked = false;
   }
 
@@ -28,7 +28,7 @@ class Mole {
 
   randomPosition() {
     // WINDOW SIZE
-    const bodyRect = document.getElementById('mole-container').getBoundingClientRect();
+    const bodyRect = document.getElementById("mole-container").getBoundingClientRect();
 
     // WINDOW LIMITS
     const maxX = bodyRect.width - this.mole.offsetWidth;

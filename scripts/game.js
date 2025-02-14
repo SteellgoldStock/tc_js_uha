@@ -21,23 +21,23 @@ class Game {
 
     this.spawnInterval = baseSpeed || 2000;
 
-    const scoreSpan = document.getElementById('score-value');
-    const timerSpan = document.getElementById('timer-value');
-    const speedSpan = document.getElementById('speed-value');
+    const scoreSpan = document.getElementById("score-value");
+    const timerSpan = document.getElementById("timer-value");
+    const speedSpan = document.getElementById("speed-value");
     
     const gameOnboard = document.getElementById("game-onboard");
     const gameAreaContainer = document.getElementById("game-area");
     const gameInfoContainer = document.getElementById("info-container");
-    gameOnboard.style.display = 'none';
-    gameAreaContainer.style.display = 'block';
-    gameInfoContainer.style.display = 'block';
+    gameOnboard.style.display = "none";
+    gameAreaContainer.style.display = "block";
+    gameInfoContainer.style.display = "block";
 
-    const startButton = document.getElementById('start-button');
-    startButton.style.display = 'none';
+    const startButton = document.getElementById("start-button");
+    startButton.style.display = "none";
 
     timerSpan.innerHTML = parseTimer(this.elapsedTime);
 
-    const moleElement = document.getElementById('mole');
+    const moleElement = document.getElementById("mole");
 
     let interval;
 
@@ -55,7 +55,7 @@ class Game {
 
     const mole = new Mole();
 
-    moleElement.addEventListener('click', () => {
+    moleElement.addEventListener("click", () => {
       if (mole.isClicked()) return;
       mole.click();
 
@@ -64,7 +64,7 @@ class Game {
 
       adjustInterval();
 
-      moleElement.classList.add('hit');
+      moleElement.classList.add("hit");
       setTimeout(() => {
         mole.hide();
       }, 100);
@@ -85,7 +85,7 @@ class Game {
 
       interval = setInterval(speedInterval, this.spawnInterval)
 
-      speedSpan.innerHTML = Math.floor(this.spawnInterval) + 'ms';
+      speedSpan.innerHTML = Math.floor(this.spawnInterval) + "ms";
     }
 
     speedInterval(speedInterval, this.spawnInterval);
@@ -96,19 +96,19 @@ class Game {
 
     const gameAreaContainer = document.getElementById("game-area");
     const gameInfoContainer = document.getElementById("info-container");
-    gameAreaContainer.style.display = 'none';
-    gameInfoContainer.style.display = 'none';
+    gameAreaContainer.style.display = "none";
+    gameInfoContainer.style.display = "none";
 
-    const message = document.getElementById('end-message');
-    message.style.display = 'block';
+    const message = document.getElementById("end-message");
+    message.style.display = "block";
 
-    const moleHits = document.getElementById('mole-hits');
+    const moleHits = document.getElementById("mole-hits");
     moleHits.innerHTML = this.score;
 
-    const gameTime = document.getElementById('game-time');
+    const gameTime = document.getElementById("game-time");
     gameTime.innerHTML = this.defaultTime;
 
-    const finalSpeed = document.getElementById('final-speed');
-    finalSpeed.innerHTML = Math.floor(this.spawnInterval) + 'ms';
+    const finalSpeed = document.getElementById("final-speed");
+    finalSpeed.innerHTML = Math.floor(this.spawnInterval) + "ms";
   }
 }

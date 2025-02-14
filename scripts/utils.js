@@ -8,8 +8,8 @@ const parseTimer = (value, isMs = false, wtf = false) => {
 
   if (minutes > 0) {
     return `${minutes}m
-      ${seconds < 10 ? '0' : ''}
-      ${seconds}s ${wtf && minutes >= 5 ? '🤷‼️‼️⁉️⁉️' : minutes > 3 ? '⁉️' : '‼️⁉️' }`;
+      ${seconds < 10 ? "0" : ""}
+      ${seconds}s ${wtf && minutes >= 5 ? "🤷‼️‼️⁉️⁉️" : minutes > 3 ? "⁉️" : "‼️⁉️" }`;
   }
 
   return `${seconds}s`;
