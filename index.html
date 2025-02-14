@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TAPE-TAUPE</title>
+
   <link rel="icon" href="/assets/MART_HIT.png" type="image/png">
+
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/cursor.css">
   <link rel="stylesheet" href="styles/elements.css">
@@ -42,7 +44,7 @@
     </p>
 
     <p id="message-text">
-      Vous avez fini avec un delai d'apparition de
+      Vous avez fini avec un delai d"apparition de
       <span id="final-speed">0ms</span>
     </p>
 
@@ -54,12 +56,12 @@
 
     <div id="game-settings">
       <h3 id="game-title">Jeu de tape la taupe</h3>
-      <p id="game-description">Mettez vos réflexes à l'épreuve en tapant sur la taupe qui sort du trou !</p>
+      <p id="game-description">Mettez vos réflexes à l"épreuve en tapant sur la taupe qui sort du trou !</p>
   
       <div class="settings-container">
         <div class="settings">
           <label for="difficulty">Difficulté :</label>
-          <p id="difficulty-description">La difficulté détermine la vitesse d'apparition de la taupe.</p>
+          <p id="difficulty-description">La difficulté détermine la vitesse d"apparition de la taupe.</p>
           <select id="difficulty">
             <option value="easy">Facile (2s)</option>
             <option value="medium">Moyenne (1.5s)</option>
@@ -93,15 +95,15 @@
   <script>
     const game = new Game();
 
-    const difficulty = document.getElementById('difficulty');
-    const timeSlider = document.getElementById('time-slider');    
+    const difficulty = document.getElementById("difficulty");
+    const timeSlider = document.getElementById("time-slider");    
 
-    const button = document.getElementById('start-button');
-    const restartButton = document.getElementById('restart-button');
+    const button = document.getElementById("start-button");
+    const restartButton = document.getElementById("restart-button");
 
-    const ccCheckbox = document.getElementById('custom-cursor-checkbox');
+    const ccCheckbox = document.getElementById("custom-cursor-checkbox");
 
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener("DOMContentLoaded", () => {
       if (ccCheckbox.checked) {
         document.getElementById("custom-cursor").style.display = "block";
         document.body.style.cursor = "none";
@@ -111,7 +113,7 @@
       }
     });
 
-    ccCheckbox.addEventListener('change', () => {
+    ccCheckbox.addEventListener("change", () => {
       if (ccCheckbox.checked) {
         document.getElementById("custom-cursor").style.display = "block";
         document.body.style.cursor = "none";
@@ -139,7 +141,7 @@
     const slider = document.getElementById("time-slider");
     const timeValue = document.getElementById("time-value");
 
-    slider.addEventListener('input', () => {
+    slider.addEventListener("input", () => {
       timeValue.textContent = parseTimer(slider.value, false, true);
     });
   </script>
